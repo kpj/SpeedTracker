@@ -17,9 +17,11 @@ class Tester(object):
 
         print('[Saving to "{}" every {} seconds]'.format(self.fname, self.interval))
 
+        self._instance = pyspeedtest.SpeedTest()
+
     def _get_dw(self):
         try:
-            return pyspeedtest.SpeedTest().download()
+            return self._instance.download()
         except:
             return -1
 
