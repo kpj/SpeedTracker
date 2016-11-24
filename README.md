@@ -13,3 +13,8 @@ Run tracker:
 ```bash
 $ python main.py
 ```
+
+Plot results:
+```bash
+$ python main.py log.csv
+```
