@@ -45,12 +45,16 @@ class Tester(object):
 def plot(fname):
     df = pd.read_csv(fname, header=None, names=('timestamp', 'rate'))
     df.timestamp = pd.to_datetime(df.timestamp)
-
     df.rate /= 1e6
+
+    plt.figure()
     df.plot(x='timestamp', y='rate')
 
-    plt.title('Mbit/s')
-    plt.show()
+    plt.title('Network connectivity')
+    plt.ylabel('Mbit/s')
+
+    plt.tight_layout()
+    plt.savefig('result.pdf')
 
 def main():
     if len(sys.argv) == 1:
